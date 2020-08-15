@@ -1,19 +1,5 @@
-const express = require('express');
-const cors = require('cors')
+const Queue = require('./app/lib/Queue.js');
 
-const routes = require('./routes')
+const RegistroImport = require('./app/jobs/RegistroImport.js');
 
-const app = express();
-
-app.use(cors());
-app.use(express.json({limit: '500mb'}));
-
-app.use(routes);
-
-const port = process.env.PORT || 3005;
-app.listen(port);
-
-
-
-
-
+Queue.fila.process(RegistroImport.handle);

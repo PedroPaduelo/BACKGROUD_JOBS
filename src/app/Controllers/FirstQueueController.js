@@ -1,6 +1,6 @@
 const crypto = require('crypto');
 const db2 = require('../../database/connection')
-
+const queue = require('../lib/Queue.js')
 
 module.exports = {
     
@@ -15,13 +15,11 @@ module.exports = {
 
         console.log("03 - Fim busca bases no bamco de dados!!!")
 
+        tbl_fechamento.map(async (tbl_fechamento) => {
+            await queue.fila.add(tbl_fechamento);
+        })
 
 
-
-
-
-
-        
         return response.json("users")
     }
 };
