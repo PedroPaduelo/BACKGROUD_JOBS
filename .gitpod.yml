@@ -5,6 +5,4 @@ vscode:
   extensions:
     - alexcvzz.vscode-sqlite@0.8.2:CKh7wsjIsH5zuv3a7N3bag==
 
-tasks:
-  - command: npm start
-    
+
