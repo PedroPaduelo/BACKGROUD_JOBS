@@ -15,7 +15,7 @@ module.exports = {
 
         console.log("03 - Fim busca bases no bamco de dados!!!")
 
-
+        //await queue.fila.add(tbl_fechamento[1]);
 
         tbl_fechamento.map(async (tbl_fechamento) => {
             await queue.fila.add(tbl_fechamento);
@@ -25,4 +25,5 @@ module.exports = {
 
         return response.json("users")
     }
+
 };
